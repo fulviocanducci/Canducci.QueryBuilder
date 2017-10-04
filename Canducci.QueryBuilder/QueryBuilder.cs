@@ -6,7 +6,7 @@ using System.Data;
 
 namespace Canducci.QueryBuilder
 {
-    public partial class QueryBuilder
+    public abstract partial class QueryBuilder
     {
         protected readonly IDbConnection connection;
         protected readonly Query query;

@@ -1,7 +1,7 @@
 ﻿
 namespace Canducci.QueryBuilder
 {
-    public partial class QueryBuilder
+    public abstract partial class QueryBuilder
     {
         public QueryBuilder Aggregate(string type, params string[] columns)
         {

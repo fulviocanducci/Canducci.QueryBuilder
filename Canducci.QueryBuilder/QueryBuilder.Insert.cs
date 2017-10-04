@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Canducci.QueryBuilder
 {
-    public partial class QueryBuilder
+    public abstract partial class QueryBuilder
     {
         public QueryBuilder Insert(IEnumerable<string> columns, IEnumerable<object> values)
         {

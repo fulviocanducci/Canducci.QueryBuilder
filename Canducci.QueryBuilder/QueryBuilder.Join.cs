@@ -3,7 +3,7 @@ using System;
 
 namespace Canducci.QueryBuilder
 {
-    public partial class QueryBuilder
+    public abstract partial class QueryBuilder
     {
         public QueryBuilder DeepJoin(string expression, string sourceKeySuffix = "Id", string targetKey = "Id", string type = "inner" )
         {

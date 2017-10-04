@@ -6,33 +6,33 @@ using System.Data;
 
 namespace Canducci.QueryBuilder.Dapper
 {
-    public class QueryBuilderDapper: Canducci.QueryBuilder.QueryBuilder
+    public class QueryBuilderDapper: QueryBuilder
     {
         public QueryBuilderDapper(IDbConnection connection, Compiler compiler)
             :base(connection, compiler)
         {
 
         }
-
-        public int Save(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        
+        public override int SaveOrUpdate()
         {
             SqlResult result = Compiler();
             return connection
-                .Execute(result.Sql, result.Bindings, transaction, commandTimeout, commandType);
+                .Execute(result.Sql, result.Bindings);
         }
 
-        public IEnumerable<T> List<T>(IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
+        public override IEnumerable<T> List<T>()
         {
             SqlResult result = Compiler();
             return connection
-                .Query<T>(result.Sql, result.Bindings, transaction, buffered, commandTimeout, commandType);
+                .Query<T>(result.Sql, result.Bindings);
         }
 
-        public T Find<T>(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        public override T GetOne<T>()
         {
             SqlResult result = Compiler();
             return connection
-                .QueryFirst<T>(result.Sql, result.Bindings, transaction, commandTimeout, commandType);
+                .QueryFirst<T>(result.Sql, result.Bindings);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Canducci.QueryBuilder
 {
-    public partial class QueryBuilder
+    public abstract partial class QueryBuilder
     {
         public QueryBuilder Where<T>(string column, string op, T value)
         {

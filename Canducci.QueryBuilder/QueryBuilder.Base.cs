@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Canducci.QueryBuilder
 {
-    public partial class QueryBuilder
+    public abstract partial class QueryBuilder
     {
         public string EngineScope = null;
         //private bool orFlag = false;
