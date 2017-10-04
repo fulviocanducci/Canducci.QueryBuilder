@@ -6,12 +6,13 @@ namespace Canducci.QueryBuilder
 {
     public partial class QueryBuilder
     {
-        //public string EngineScope = null;
+        public string EngineScope = null;
         //private bool orFlag = false;
         //private bool notFlag = false;
 
         public QueryBuilder SetEngineScope(string engine)
-        {            
+        {
+            EngineScope = engine;
             query.SetEngineScope(engine);
             return this;
         }
@@ -82,7 +83,6 @@ namespace Canducci.QueryBuilder
             query.Clear(component, engineCode);
             return this;
         }
-
        
         //protected QueryBuilder And()
         //{
