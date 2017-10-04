@@ -14,7 +14,7 @@ namespace Canducci.QueryBuilder
             query = new Query();
             this.compiler = compiler;
             this.connection = connection;
-
         }
+
     }
 }
