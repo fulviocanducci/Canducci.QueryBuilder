@@ -11,8 +11,7 @@ namespace Canducci.QueryBuilder
 
         public QueryBuilder Count(params string[] columns)
         {
-            query.Count(columns);
-            return this;
+            return Aggregate("count", columns);
         }
 
         public QueryBuilder Avg(string column)

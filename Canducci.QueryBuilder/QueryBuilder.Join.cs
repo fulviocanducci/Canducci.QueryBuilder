@@ -1,83 +1,48 @@
 ﻿using SqlKata;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Canducci.QueryBuilder
 {
     public partial class QueryBuilder
     {
-        public QueryBuilder DeepJoin(
-            string expression,
-            string sourceKeySuffix = "Id",
-            string targetKey = "Id",
-            string type = "inner"
-        )
+        public QueryBuilder DeepJoin(string expression, string sourceKeySuffix = "Id", string targetKey = "Id", string type = "inner" )
         {
             query.DeepJoin(expression, sourceKeySuffix, targetKey, type);
             return this;
         }
 
-        public QueryBuilder DeepJoin(
-            string expression,
-            Func<string, string> sourceKeyGenerator,
-            Func<string, string> targetKeyGenerator = null,
-            string type = "inner"
-        )
+        public QueryBuilder DeepJoin(string expression, Func<string, string> sourceKeyGenerator, Func<string, string> targetKeyGenerator = null, string type = "inner")
         {
             query.DeepJoin(expression, sourceKeyGenerator, targetKeyGenerator, type);
             return this;
         }
 
-        public QueryBuilder LeftDeepJoin(
-            string expression,
-            string sourceKeySuffix = "Id",
-            string targetKey = "Id"
-        )
+        public QueryBuilder LeftDeepJoin(string expression,string sourceKeySuffix = "Id", string targetKey = "Id")
         {
             return DeepJoin(expression, sourceKeySuffix, targetKey, "left");
         }
-        public QueryBuilder LeftDeepJoin(
-            string expression,
-            Func<string, string> sourceKeyGenerator,
-            Func<string, string> targetKeyGenerator = null
-        )
+
+        public QueryBuilder LeftDeepJoin(string expression, Func<string, string> sourceKeyGenerator, Func<string, string> targetKeyGenerator = null)
         {
             return DeepJoin(expression, sourceKeyGenerator, targetKeyGenerator, "left");
         }
 
-        public QueryBuilder RightDeepJoin(
-            string expression,
-            string sourceKeySuffix = "Id",
-            string targetKey = "Id"
-            )
+        public QueryBuilder RightDeepJoin(string expression, string sourceKeySuffix = "Id", string targetKey = "Id")
         {
             return DeepJoin(expression, sourceKeySuffix, targetKey, "right");
         }
 
-        public QueryBuilder RightDeepJoin(
-            string expression,
-            Func<string, string> sourceKeyGenerator,
-            Func<string, string> targetKeyGenerator = null
-        )
+        public QueryBuilder RightDeepJoin(string expression, Func<string, string> sourceKeyGenerator, Func<string, string> targetKeyGenerator = null)
         {
             return DeepJoin(expression, sourceKeyGenerator, targetKeyGenerator, "right");
         }
 
-        public QueryBuilder CrossDeepJoin(
-             string expression,
-            string sourceKeySuffix = "Id",
-            string targetKey = "Id"
-        )
+        public QueryBuilder CrossDeepJoin(string expression,string sourceKeySuffix = "Id", string targetKey = "Id")
         {
             return DeepJoin(expression, sourceKeySuffix, targetKey, "right");
         }
 
-        public QueryBuilder CrossDeepJoin(
-            string expression,
-            Func<string, string> sourceKeyGenerator,
-            Func<string, string> targetKeyGenerator = null
-        )
+        public QueryBuilder CrossDeepJoin(string expression, Func<string, string> sourceKeyGenerator, Func<string, string> targetKeyGenerator = null)
         {
             return DeepJoin(expression, sourceKeyGenerator, targetKeyGenerator, "cross");
         }
@@ -92,13 +57,7 @@ namespace Canducci.QueryBuilder
             });
         }
 
-        public QueryBuilder Join(
-            string table,
-            string first,
-            string second,
-            string op = "=",
-            string type = "inner"
-        )
+        public QueryBuilder Join(string table, string first, string second, string op = "=", string type = "inner")
         {
             return Join(j => j.JoinWith(table).WhereColumns(first, op, second).AsType(type));
         }
