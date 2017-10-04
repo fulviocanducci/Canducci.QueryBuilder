@@ -8,9 +8,9 @@ namespace Canducci.QueryBuilder
 {
     public partial class QueryBuilder
     {
-        private readonly IDbConnection connection;
-        private readonly Query query;
-        private readonly Compiler compiler;        
+        protected readonly IDbConnection connection;
+        protected readonly Query query;
+        protected readonly Compiler compiler;        
         #region Properties
         public List<AbstractClause> Clauses {
             get
@@ -62,6 +62,15 @@ namespace Canducci.QueryBuilder
             query = new Query();
             this.compiler = compiler;
             this.connection = connection;
+        }
+
+        public SqlResult Compiler(Query q)
+        {
+            return compiler.Compile(q);
+        }
+        public SqlResult Compiler()
+        {
+            return compiler.Compile(query);
         }
 
         public static Raw Raw(string value)

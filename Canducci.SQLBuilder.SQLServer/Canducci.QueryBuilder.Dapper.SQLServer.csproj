@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Canducci.QueryBuilder\Canducci.QueryBuilder.csproj" />
+    <ProjectReference Include="..\Canducci.QueryBuilder.Dapper\Canducci.QueryBuilder.Dapper.csproj" />
   </ItemGroup>
 
 </Project>

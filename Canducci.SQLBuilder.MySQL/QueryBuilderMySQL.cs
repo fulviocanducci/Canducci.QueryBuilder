@@ -1,8 +1,9 @@
-﻿using SqlKata.Compilers;
+﻿using Canducci.QueryBuilder.Dapper;
+using SqlKata.Compilers;
 using System.Data;
-namespace Canducci.SQLBuilder.MySQL
+namespace Canducci.SQLBuilder.Dapper.MySQL
 {
-    public class QueryBuilderMySQL: Canducci.QueryBuilder.QueryBuilder
+    public class QueryBuilderMySQL: QueryBuilderDapper
     {
         public QueryBuilderMySQL(IDbConnection connection)
             :base(connection, new MySqlCompiler())

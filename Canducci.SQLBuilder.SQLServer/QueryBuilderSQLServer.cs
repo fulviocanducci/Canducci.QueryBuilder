@@ -1,13 +1,16 @@
-﻿using SqlKata.Compilers;
+﻿using Canducci.QueryBuilder.Dapper;
+using SqlKata.Compilers;
 using System.Data;
 
-namespace Canducci.SQLBuilder.SQLServer
+namespace Canducci.SQLBuilder.Dapper.SQLServer
 {
-    public class QueryBuilderSQLServer: Canducci.QueryBuilder.QueryBuilder
+    public class QueryBuilderSQLServer: QueryBuilderDapper
     {
         public QueryBuilderSQLServer(IDbConnection connection)
             :base(connection, new SqlServerCompiler())
         {
+            
         }
+        
     }
 }
